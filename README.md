@@ -56,7 +56,7 @@ Third-party developer flow
 - Add well-meaning title so that the maintainer can quickly recognize the purpose of the pull request
 - Write detailed description in the body, what main issue this PR solves and how is it testable to prove the validity of the solution.
 
-### Merge request
+### Merge guidelines
 
 - Use `Squash` to keep the commit line clean from the thousands of commits
 
