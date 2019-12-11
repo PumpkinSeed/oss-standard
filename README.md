@@ -1,5 +1,7 @@
 # OSS Standard
 
+*Any pieces of advice for the improvement of the guideline is warmly accepted.*
+
 Maintainability guidelines of Open-Source Software development
 
 ### Issues
