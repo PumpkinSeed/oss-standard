@@ -12,19 +12,17 @@ Maintainability guidelines of Open-Source Software development
 
 ### Basic guidelines
 
-- Follow the [git flow guidelines ](https://nvie.com/posts/a-successful-git-branching-model/)
-- Use the [git flow](https://github.com/nvie/gitflow/wiki/Installation) tool
-- Developers only hit the develop branch
+- Follow [trunk based development](https://trunkbaseddevelopment.com/)
 
 Development flow
-1. Pull the develop branch to get the most up-to-date version of the system/application/service
-2. Create a feature branch following the [branch naming conventions](#branch-naming-concentions), `git flow feature start I332-short-name`
+1. Pull the **master** branch to get the most up-to-date version of the system/application/service
+2. Create a feature branch following the [branch naming conventions](#branch-naming-concentions), `git branch I332-short-name`
 3. Push frequently based on the smaller parts of the sections, follow the [push guidelines](#push-guidelines)
 4. Create Pull Request once the development reaches a state where the solution is considered to be done based on the requirements, follow the guidelines of [pull request](#pull-request)
 5. Accept the reviews and do the change requests
 
 Maintainer flow
-1. Accept pull request
+1. Accept pull request on master
 2. Based on the size of the team responsible for the codebase add half of the team as reviewer
 3. Setup additional content for the pull request, in case of [Github](#github-pr-additionals) 
 4. - If half of the reviewers (so 1/4 of the team) approve the changes 
@@ -35,8 +33,11 @@ Maintainer flow
 
 Third-party developer flow
 1. Fork the original repository
-2. Do the steps of the Development flow
-3. Create pull request between forks against the develop branch
+2. Clone it and the remote origin points to the forked version
+3. Set the remote upstream to the original repository
+4. Frequently do pulls on upstream's master and merge it into the origin's working branch to keep the development up-to-date
+5. Do the steps of the Development flow
+6. Create pull request between forks against the **master** branch
 
 ### Branch naming conventions
 
@@ -50,13 +51,14 @@ Third-party developer flow
 
 - Never use `*` or `.` in `git add`, it helps to overview the files and avoid the pushes of unecessary files (ex.: binaries)
 - Never use `-m` in `git commit`, it helps to have an additional overview of the files and makes it possible to format the commit message properly
-- Use `git flow feature publish I12-branch-name` instead of `git push`
-- Never use `git flow feature finish I12-branch-name`, it merges the branch directly into the develop
+- Use `git push --set-upstream origin I12-branch-name` at the first time
+- Never push changes on the master
 
 ### Pull request
 
-- Add well-meaning title so that the maintainer can quickly recognize the purpose of the pull request
+- Add well-meaning title so that the maintainer can quickly recognize the purpose of the pull request.
 - Write detailed description in the body, what main issue this PR solves and how is it testable to prove the validity of the solution.
+- Create pull request against **master**.
 
 ### Merge guidelines
 
@@ -65,11 +67,9 @@ Third-party developer flow
 ### Release guidelines
 
 - In special cases let's handle it in an automated way or go with the following steps by hand
-- Make sure `master` and `develop` branches are up-to-date
-- Use `git flow release` to create release branches, ex.: `git flow feature start v1.2.3`
 - Use [Semver 2](https://semver.org/) or language-specific best practices
-- Finish the release with git flow, ex.: `git flow feature finish v1.2.3`
-- Push the new changes `git push && git push --tags`
+- Create annotated tag with `git tag -a v1.2.3`
+- Push the new changes `git push --tags`
 
 ### Github PR additionals
 
