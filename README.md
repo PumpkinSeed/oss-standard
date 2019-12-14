@@ -1,8 +1,8 @@
 # OSS Standard
 
-*Any pieces of advice for the improvement of the guideline is warmly accepted.*
-
-Maintainability guidelines of Open-Source Software development
+- Maintainability guidelines of Open-Source Software development
+- **Guidelines aplicable for newly started software projects**
+- *Any pieces of advice for the improvement of the guideline is warmly accepted.*
 
 ### Issues
 
